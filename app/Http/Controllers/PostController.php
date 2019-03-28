@@ -16,7 +16,7 @@ class PostController extends Controller
         $posts = \App\Post::all();
 
         foreach ($posts as $post) {
-            echo $post;
+            dd($post);
         }
     }
 
@@ -26,7 +26,7 @@ class PostController extends Controller
                          ->where('id', $id)
                          ->first();
 
-        echo $post;
+        dd($post);
     }
 
     public function create()
