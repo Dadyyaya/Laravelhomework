@@ -13,11 +13,11 @@ class PostController extends Controller
 
     public function post()
     {
-        $posts = \App\Post::all();
+        $posts = \App\Post::paginate(5);
 
-        foreach ($posts as $post) {
-            dd($post);
-        }
+            return view('welcome', [
+                'posts' => $posts
+                ]);
     }
 
     public function getPostById($id)
@@ -26,16 +26,18 @@ class PostController extends Controller
                          ->where('id', $id)
                          ->first();
 
-        dd($post);
+            return view('post', [
+                'post' => $post
+            ]);
     }
 
     public function create()
     {
-        
+        return view('create');
     }
 
     public function comment()
     {
-        
+        return view('comment');
     }
 }
