@@ -21,6 +21,8 @@ Route::get('/post', 'PostController@post');
 
 Route::get('/post/{id}', 'PostController@getPostById');
 
+Route::resource('', 'PostController@store');
+
 Route::get('/post/create', 'PostController@create');
 
 Route::get('/post/comment', 'PostController@comment');

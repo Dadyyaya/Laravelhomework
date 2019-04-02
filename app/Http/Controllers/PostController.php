@@ -31,6 +31,11 @@ class PostController extends Controller
             ]);
     }
 
+    public function store(Request $request)
+    {
+        $this
+    }
+
     public function create()
     {
         return view('create');
