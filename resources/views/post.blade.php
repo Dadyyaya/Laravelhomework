@@ -51,13 +51,17 @@
         <p>{{$post->content}}</p>
         <p align="right">文章建立時間:{{$post->created_at}}</p>
         <h3>我要留言</h3>
-      <form action="{{ url('post/($id)') }}" method="post">
+      <form action="/post" method="post" class="form-horizontal">
         {!! csrf_field() !!}
         <textarea type="text" name="content" rows="10" class="form-control" required="required"></textarea>
         <br>
         <button type="submit" class="btn btn-light">送出留言</button>
       </form>
         <h3>留言列表</h3>
+      <form action="{{ route('post.store') }}" method="post">
+        {!! csrf_field() !!}
+        
+      </form>
         <p>{{$post->comment}}</p>
         <p align="right">留言時間:{{$post->created_at}}</p>
       </div>

@@ -33,7 +33,15 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $this
+        $this->Validate($request, [
+            'content' => 'required'
+        ]);
+
+        $request->post()->comment()->create([
+            'content' => $request->content,
+        ]);
+
+        return redirect('/post');
     }
 
     public function create()
