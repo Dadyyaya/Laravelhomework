@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/post', 'PostController@post');
 
-Route::get('/post/{id}', 'PostController@getPostById');
+Route::get('/post/{id}', 'PostController@getPostById')->name('post.index');
 
 Route::post('/post/store', 'PostController@store')->name('post.store');
 

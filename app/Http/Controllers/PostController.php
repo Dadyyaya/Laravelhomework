@@ -37,11 +37,16 @@ class PostController extends Controller
             'content' => 'required'
         ]);
 
-        $request->post()->comment()->create([
-            'content' => $request->content,
+        $post = \App\Post::with('comment')
+                         ->where('id', $request->id)
+                         ->first();
+
+        $post->comment()->create([
+            'post_id' => $request->id,
+            'content' => $request->get('content'),
         ]);
 
-        return redirect('/post');
+        return redirect()->to(route('post.index', ['id' => $request->get('id')]));
     }
 
     public function create()

@@ -9,12 +9,12 @@ class Comment extends Model
     protected $table = 'comment';
 
     protected $fillable = [
-        'id',
+        'post_id',
         'content',
     ];
 
     public function post()
     {
-        return $this->belongsTo('App\Post', 'id');
+        return $this->belongsTo('App\Post');
     }
 }

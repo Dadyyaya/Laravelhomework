@@ -14,7 +14,7 @@ class CommentTableSeeder extends Seeder
         $posts = \App\Post::all();
         foreach ($posts as $post){
             factory(App\Comment::class)->create([
-                'id' => $post->id,
+                'post_id' => $post->id,
             ]);
         }
     }

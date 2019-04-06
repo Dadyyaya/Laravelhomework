@@ -9,13 +9,12 @@ class Post extends Model
     protected $table = 'post';
 
     protected $fillable = [
-        'id',
         'title',
         'content',
     ];
 
     public function comment()
     {
-        return $this->hasMany('App\Comment', 'id');
+        return $this->hasMany('App\Comment');
     }
 }
